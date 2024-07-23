@@ -5,6 +5,7 @@ import Landing from './Pages/Landing';
 import Footer from './Components/Footer';
 import BookTrialClass from './Pages/BookTrialClass';
 import Contactemp from './Pages/Contactemp';
+import BookTrialConfirm from './Components/BookTrialConfirm';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/bookclass" element={<BookTrialClass />} />
+        <Route path="/bookclassconfirm" element={<BookTrialConfirm />} />
         <Route path="/Contact" element={<Contactemp />} />
       </Routes>
       <Footer />
