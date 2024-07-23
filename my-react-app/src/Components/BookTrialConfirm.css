@@ -1,0 +1,64 @@
+.confirmationMessage
+{
+    padding: 1rem 2rem;
+    background-color: #D5EFFA;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    width: 45%;
+}
+
+.confirmationMessage h3
+{
+    color: #163247;
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.confirmationMessage p
+{
+    color: #163247;
+    opacity: 0.75;
+    font-size: 18px;
+}
+
+.classDetails
+{
+    padding: 1rem 2rem;
+    background-color: #222C44;
+    border-radius: 10px;
+    width: 45%;
+}
+
+.classDetails .confirm-head
+{
+    color: #D5EFFA;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.classDetails p
+{
+    color: #D5EFFA;
+    font-size: 18px;
+}
+
+.edit-btn
+{
+    font-family: 'Poppins', sans-serif;
+    background-color: #D5EFFA;
+    color: #222C44;
+    transition: 0.3s transform ease;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    border: none;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.edit-btn:hover
+{
+    transform: translateY(-3px);
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(213, 239, 250, 0.15);
+}
