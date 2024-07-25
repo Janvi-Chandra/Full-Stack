@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import emailjs from '@emailjs/browser';
 import './BookTrial.css';
 import ClassRoomGif from '../assets/ClassRoomGif.gif';
 
@@ -10,6 +12,10 @@ const BookTrial = () => {
     time: ''
   });
 
+  const [emailSent, setEmailSent] = useState(null);
+  const form = useRef();
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -17,7 +23,21 @@ const BookTrial = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form Data:', formData);
+
+    emailjs
+      .sendForm('service_3rjqtj9', 'template_tdh21cc', form.current, '04P1mMHHhJrbVkdCC')
+      .then(
+        () => {
+
+          setEmailSent(true);
+          navigate('/bookclassconfirm',{state:{formData,emailSent:true}});
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+          setEmailSent(false);
+          navigate('/bookclassconfirm',{state:{formData,emailSent:false}});
+        }
+      );
   };
 
   return (
@@ -28,13 +48,13 @@ const BookTrial = () => {
         <img src={ClassRoomGif} alt="Trial Class" />
       </div>
       <div className="rightTrial">
-        <form onSubmit={handleSubmit}>
+        <form ref={form} onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="name">Name</label>
             <input
               type="text"
               id="name"
-              name="name"
+              name="name" 
               value={formData.name}
               onChange={handleChange}
               placeholder='Enter Name'
@@ -46,7 +66,7 @@ const BookTrial = () => {
             <input
               type="tel"
               id="phone"
-              name="phone"
+              name="phone" 
               value={formData.phone}
               onChange={handleChange}
               placeholder='Enter Phone No.'
@@ -58,7 +78,7 @@ const BookTrial = () => {
             <input
               type="date"
               id="date"
-              name="date"
+              name="date" 
               value={formData.date}
               onChange={handleChange}
               required
@@ -69,7 +89,7 @@ const BookTrial = () => {
             <input
               type="time"
               id="time"
-              name="time"
+              name="time" 
               value={formData.time}
               onChange={handleChange}
               required
