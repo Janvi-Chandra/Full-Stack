@@ -6,6 +6,7 @@ import Footer from './Components/Footer';
 import BookTrialClass from './Pages/BookTrialClass';
 import Contactemp from './Pages/Contactemp';
 import BookTrialConfirm from './Components/BookTrialConfirm';
+import Login from './Pages/Login';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/bookclass" element={<BookTrialClass />} />
         <Route path="/bookclassconfirm" element={<BookTrialConfirm />} />
         <Route path="/Contact" element={<Contactemp />} />
+        <Route path="/login" element={<Login/>} />
       </Routes>
       <Footer />
      </div>
